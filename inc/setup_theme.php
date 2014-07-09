@@ -30,6 +30,15 @@ function cb_after_theme(){
 			'top'		=> __( 'Top Menu', LANGUAGE_ZONE ),
 			'bottom'	=> __( 'Bottom Menu', LANGUAGE_ZONE ),
 	) );
+	
+// 	register_sidebar( array(
+// 						'name' => 'Right sidebar',
+// 						'id' => 'home_right_1',
+// 						'before_widget' => '<div>',
+// 						'after_widget' => '</div>',
+// 						'before_title' => '<h2 class="rounded">',
+// 						'after_title' => '</h2>',
+// 	) );
 
 
 	/*
@@ -42,7 +51,7 @@ function cb_after_theme(){
 
 	// This theme allows users to set a custom background.
 	add_theme_support('custom-background', array(
-		'default-color'          => 'f5f5f5',
+		'default-color'          => 'e5e5e5',
 		'default-image'          => '',
 		'wp-head-callback'       => '_custom_background_cb',
 		'admin-head-callback'    => '',
@@ -133,7 +142,7 @@ function websolns_header_style(){
 function websolns_customize_register( $wp_customize )
 {
 	$wp_customize->add_section( 'websolns_colors_section' , array(
-			'title'      => __('Websolns Colors',LANGUAGE_ZONE),
+			'title'      => __('Websolns Text Colors',LANGUAGE_ZONE),
 			'priority'   => 30,
 	));
  
@@ -141,7 +150,7 @@ function websolns_customize_register( $wp_customize )
     //  = Link Colours              =
     //  =============================
     $wp_customize->add_setting('link_textcolor', array(
-        'default'           => 'fff',
+        'default'           => '5f7279',
         'sanitize_callback' => 'sanitize_hex_color',
         'capability'        => 'edit_theme_options',
         'type'           => 'option',
@@ -177,7 +186,7 @@ function websolns_customize_register( $wp_customize )
 	//  = Text Colours              =
 	//  =============================
 	$wp_customize->add_setting('body_textcolor', array(
-			'default'           => '000',
+			'default'           => '5f7279',
 			'sanitize_callback' => 'sanitize_hex_color',
 			'capability'        => 'edit_theme_options',
 			'type'           => 'option',
@@ -190,6 +199,57 @@ function websolns_customize_register( $wp_customize )
 			'section'  => 'websolns_colors_section',
 			'settings' => 'body_textcolor',
 	)));
+
+
+	$wp_customize->add_section( 'websolns_header_color_section' , array(
+			'title'      => __('Websolns Header Colors',LANGUAGE_ZONE),
+			'priority'   => 30,
+	));
+
+	$wp_customize->add_setting('websoln_top_bgcolor', array(
+			'default'           => '68ace5',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'capability'        => 'edit_theme_options',
+			'type'           => 'option',
+			'transport'   => 'postMessage',
+	
+	));
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'websoln_top_bgcolor', array(
+			'label'    => __('Top Bar Color', LANGUAGE_ZONE),
+			'section'  => 'websolns_header_color_section',
+			'settings' => 'websoln_top_bgcolor',
+	)));
+
+	$wp_customize->add_setting('websoln_header_bgcolor', array(
+			'default'           => '3c709e',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'capability'        => 'edit_theme_options',
+			'type'           => 'option',
+			'transport'   => 'postMessage',
+	
+	));
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'websoln_header_bgcolor', array(
+			'label'    => __('Header Color', LANGUAGE_ZONE),
+			'section'  => 'websolns_header_color_section',
+			'settings' => 'websoln_header_bgcolor',
+	)));
+
+	$wp_customize->add_setting('websoln_footer_bgcolor', array(
+			'default'           => '68ace5',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'capability'        => 'edit_theme_options',
+			'type'           => 'option',
+			'transport'   => 'postMessage',
+	
+	));
+	
+	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'websoln_footer_bgcolor', array(
+			'label'    => __('Footer Color', LANGUAGE_ZONE),
+			'section'  => 'websolns_header_color_section',
+			'settings' => 'websoln_footer_bgcolor',
+	)));
  
 }
 add_action( 'customize_register', 'websolns_customize_register' );
@@ -198,9 +258,12 @@ function websolns_customize_css()
 {
     ?>
          <style type="text/css">
-             a { color:<?php echo get_option('link_textcolor'); ?>; }
-             a:hover { color:<?php echo get_option('link_hover_textcolor'); ?>; }
-             body { color:<?php echo get_option('body_textcolor'); ?>; }
+             a { color:<?php echo get_option('link_textcolor','#5f7279'); ?>; }
+             a:hover { color:<?php echo get_option('link_hover_textcolor','#000'); ?>; }
+             body { color:<?php echo get_option('body_textcolor','#5f7279'); ?>; }
+             #topbar{background:<?php echo get_option('websoln_top_bgcolor','#68ace5')?>;}
+             #menu_holder{background:<?php echo get_option('websoln_header_bgcolor','#3c709e')?>;}
+             #footer #foot_widget_cont{background:<?php echo get_option('websoln_footer_bgcolor','#68ace5')?>;}
          </style>
     <?php
 }

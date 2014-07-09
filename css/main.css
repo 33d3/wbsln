@@ -1,6 +1,6 @@
 body{
   background:#f8f8f8;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body,div,section{
@@ -34,6 +34,7 @@ body,div,section{
 #page header{
   background:#f8f8f8;
   height:80px;
+  text-align:center;
 }
 
 #page #content{

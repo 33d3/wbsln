@@ -3,11 +3,11 @@ defined('ABSPATH') or die("No script kiddies please!");
 
 get_header();
 ?>
-
+<?php get_websolns_slider();?>
 <section id="page">
   <div class="row">
     <header class="col-md-12">
-
+		<h1><?php echo get_the_title()?></h1>
     </header>  
   </div>  
   <div id="page-inner" class="container">
