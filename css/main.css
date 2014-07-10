@@ -55,9 +55,34 @@ body,div,section{
 }
 
 #footer .footer-widget{
-  height:50px;
+  min-height:50px;
   width:100%;
   border:1px solid #fff;
+  padding: 5px;
+}
+
+#footer .footer-widget h4{
+	margin-top:0;
+}
+
+#footer .footer-widget ul{
+	list-style-type:none;
+	list-style-image:none;
+	padding-left:0;
+	margin-left: 0;
+}
+
+#footer .footer-widget ul li{
+	margin-left: 3px;
+}
+
+#footer .footer-widget ul li:before{
+	font-family: FontAwesome;
+	content: "\f105";
+	width: 21px;
+	height: 8px;
+	margin: 0.4rem 0.5rem 1rem 0rem;
+	color: #F1F1F1;
 }
 
 #copyright{

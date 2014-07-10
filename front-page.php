@@ -14,18 +14,7 @@ get_header();
     <div class="row">
       
       <div class="col-md-3">
-        <aside id="siderbar" class=""> 
-          <div class="widget">
-            <h4>Categories</h4>
-            <ul>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-            </ul>  
-          </div>
-          <div class="widget">
-          </div>  
-        </aside>  
+        	<?php get_sidebar('left')?>        
       </div>
 
       <div class="col-md-9">

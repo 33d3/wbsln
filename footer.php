@@ -6,26 +6,7 @@ defined('ABSPATH') or die("No script kiddies please!");
   <div id="foot_widget_cont">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
-          <div class="footer-widget">
-
-          </div>  
-        </div>
-        <div class="col-md-3">
-          <div class="footer-widget">
-
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="footer-widget">
-
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="footer-widget">
-
-          </div>
-        </div>
+        <?php get_sidebar('footer')?>
       </div> 
     </div>  
   </div>  

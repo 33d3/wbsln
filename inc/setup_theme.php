@@ -31,14 +31,42 @@ function cb_after_theme(){
 			'bottom'	=> __( 'Bottom Menu', LANGUAGE_ZONE ),
 	) );
 	
-// 	register_sidebar( array(
-// 						'name' => 'Right sidebar',
-// 						'id' => 'home_right_1',
-// 						'before_widget' => '<div>',
-// 						'after_widget' => '</div>',
-// 						'before_title' => '<h2 class="rounded">',
-// 						'after_title' => '</h2>',
-// 	) );
+	register_sidebar( array(
+						'name' => 'Default sidebar',
+						'id' => 'sidebar-1',
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget' => '</div>',
+						'before_title' => '<h4>',
+						'after_title' => '</h4>',
+	) );
+	
+	register_sidebar( array(
+						'name' => 'Right sidebar',
+						'id' => 'right_side_default',
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget' => '</div>',
+						'before_title' => '<h4>',
+						'after_title' => '</h4>',
+	) );
+	
+	register_sidebar( array(
+						'name' => 'Left sidebar',
+						'id' => 'left_side_default',
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget' => '</div>',
+						'before_title' => '<h4>',
+						'after_title' => '</h4>',
+	) );
+	
+	
+	register_sidebar( array(
+						'name' => 'Footer Widget Container',
+						'id' => 'sidebar-footer',
+						'before_widget' => '<div class="col-md-3"><div class="footer-widget">',
+						'after_widget' => '</div></div>',
+						'before_title' => '<h4>',
+						'after_title' => '</h4>',
+	) );
 
 
 	/*
@@ -97,7 +125,8 @@ function cb_theme_scripts(){
 	wp_enqueue_style('normalize',WBS_THEME_URI.'/css/lib/normalize.css');
 	wp_enqueue_style('wbs_bootstrap',WBS_THEME_URI.'/lib/bt/css/bootstrap.min.css');
 	wp_enqueue_style('wbs_fa','//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',array('wbs_bootstrap'));
-	wp_enqueue_style('wbs_style',WBS_THEME_URI.'/css/main.css',array('normalize','wbs_bootstrap'));
+	wp_enqueue_style('wbs_def_wp_style',WBS_THEME_URI.'/css/wp-defaults.css');
+	wp_enqueue_style('wbs_style',WBS_THEME_URI.'/css/main.css',array('normalize','wbs_bootstrap','wbs_def_wp_style'));
 	wp_enqueue_script('wbs_bootstrap_js',WBS_THEME_URI.'/lib/bt/js/bootstrap.min.js',array('jquery'));
 	wp_enqueue_script('wbs_main_js',WBS_THEME_URI.'/js/main.js',array('jquery'));
 	wp_localize_script( 'wbs_main_js', 'cb_aj',array( 'url' => admin_url( 'admin-ajax.php' )) );
