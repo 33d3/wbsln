@@ -523,14 +523,6 @@ input[type="submit"]:active {
 	word-wrap: break-word;
 }
 
-.widget a {
-	color: #fff;
-}
-
-.widget a:hover {
-	color: #68ace5;
-}
-
 .widget h1,
 .widget h2,
 .widget h3,

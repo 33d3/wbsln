@@ -5,54 +5,29 @@ get_header();
 ?>
 <?php get_websolns_slider();?>
 <section id="page">
-  <div class="row">
-    <header class="col-md-12">
-		<h1><?php echo get_the_title()?></h1>
-    </header>  
-  </div>  
+  <?php wbs_page_title();?> 
   <div id="page-inner" class="container">
     <div class="row">
       
-      <div class="col-md-3">
-        <aside id="siderbar" class=""> 
-          <div class="widget">
-            <h4>Categories</h4>
-            <ul>
-              <li>1</li>
-              <li>1</li>
-              <li>1</li>
-            </ul>  
-          </div>
-          <div class="widget">
-          </div>  
-        </aside>  
-      </div>
+      	<?php webs_check_left_sidebar();?>
+      	
+         <div id="content">
+         	<?php 
+      			while ( have_posts() ) : the_post();
 
-      <div class="col-md-9">
-         <div id="content" class="inset-10-shadow">
-           <div class="row">
-             <div class="col-md-12">
-               <div id="content_meta" >
-                 date like vs info might go here
-               </div>  
-             </div>  
-           </div> 
-          <div class="row">
-             <div class="col-md-12">
-               <div id="content_body">
-                 text might go here
-               </div>  
-             </div>  
-           </div> 
-          <div class="row">
-             <div class="col-md-12">
-               <div id="content_footer" >
-                 comment and social next previous might go here
-               </div>  
-             </div>  
-           </div> 
+					// Include the page content template.
+					get_template_part( 'content', 'single' );
+
+					// If comments are open or we have at least one comment, load up the comment template.
+					if ( comments_open() || get_comments_number() ) {
+						comments_template();
+					}
+				endwhile;
+			?>
         </div>   
-      </div>  
+   		
+   		<?php webs_check_right_sidebar();?>
+   		
     </div>    
   </div>  
 </section>

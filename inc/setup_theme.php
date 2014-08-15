@@ -7,6 +7,9 @@ if ( ! isset( $content_width ) ) {
 
 
 function cb_after_theme(){
+	
+	load_theme_textdomain( LANGUAGE_ZONE, get_template_directory() . '/languages' );
+	
 	/**
 	 * Editor style.
 	 */
@@ -74,7 +77,7 @@ function cb_after_theme(){
 	* to output valid HTML5.
 	*/
 	add_theme_support( 'html5', array(
-				'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
 	// This theme allows users to set a custom background.
@@ -116,7 +119,7 @@ function cb_after_theme(){
 	wp_upload_dir();
 }
 
-add_action( 'after_setup_theme', 'cb_after_theme', 15 );
+add_action( 'after_setup_theme', 'cb_after_theme');
 
 
 

@@ -11,3 +11,4 @@ if(!defined('LANGUAGE_ZONE'))
 
 include 'setup_theme.php';
 include 'require_plugins.php';
+include 'shortcodes.php';

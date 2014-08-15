@@ -10,6 +10,7 @@ defined('ABSPATH') or die("No script kiddies please!");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php bloginfo('title'); ?></title>
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+  <link rel="shortcut icon" href="<?php echo WBS_THEME_URI ?>/favicon.ico" />
 <!--[if IE]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -33,7 +34,7 @@ defined('ABSPATH') or die("No script kiddies please!");
         <div class="col-md-2">
         	<?php if ( get_header_image() ) : ?>
         		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-         			<img src="<?php header_image()?>"/>
+         			<img id="wbs_header_logo" src="<?php header_image()?>"/>
          		</a>
          	<?php else:?>
          		<h3 class="site-title">
@@ -41,18 +42,10 @@ defined('ABSPATH') or die("No script kiddies please!");
          		</h3>		
          	<?php endif;?>		 
         </div>  
-        <div class="col-md-10">
-            <ul class="nav nav-pills pull-right">
-              <li class="active"><a href="#">Home</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-
-                </ul>
-              </li>
-            </ul>
+        <div class="col-md-9 col-md-offset-1">
+        		<div class="primary-menu-holder">
+            		<?php wp_nav_menu(array('theme_location'=>'primary'))?>	
+            	</div>
          </div>
       </div>
     </div>  
