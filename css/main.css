@@ -172,3 +172,7 @@ header .article_title{
 #megaMenu ul li.menu-item.ss-nav-menu-reg ul.sub-menu li.menu-item:last-child{
 	padding-top:5px;
 }
+
+.backgroundrow:nth-child(even){
+	background-color:red;
+}
