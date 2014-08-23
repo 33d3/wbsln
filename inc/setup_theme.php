@@ -132,7 +132,9 @@ function cb_theme_scripts(){
 	wp_enqueue_style('wbs_icon_style',WBS_THEME_URI.'/css/icons.css');
 	wp_enqueue_style('wbs_style',WBS_THEME_URI.'/css/main.css',array('wbs_icon_style','normalize','wbs_bootstrap','wbs_def_wp_style'));
 	wp_enqueue_script('wbs_bootstrap_js',WBS_THEME_URI.'/lib/bt/js/bootstrap.min.js',array('jquery'));
-	wp_enqueue_script('wbs_main_js',WBS_THEME_URI.'/js/main.js',array('jquery'));
+	wp_enqueue_script('wbs_plugins_js',WBS_THEME_URI.'/js/plugins.js',array('jquery'));
+	wp_enqueue_script('wbs_default_js',WBS_THEME_URI.'/js/default.js',array('jquery','wbs_plugins_js'));
+	wp_enqueue_script('wbs_main_js',WBS_THEME_URI.'/js/main.js',array('jquery','wbs_default_js'));
 	wp_localize_script( 'wbs_main_js', 'cb_aj',array( 'url' => admin_url( 'admin-ajax.php' )) );
 }
 
