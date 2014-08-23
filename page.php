@@ -6,7 +6,7 @@ get_header();
 <?php get_websolns_slider();?>
 <section id="page">
   <?php wbs_page_title();?> 
-  <div id="page-inner" class="container">
+  <div id="page-inner"><!-- class="container"  -->
     <div class="row">
       
       	<?php webs_check_left_sidebar();?>
