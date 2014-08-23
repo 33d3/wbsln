@@ -10,7 +10,7 @@ var vid_ratio = 1280/720;
 var parallax_speed = 0.5;
 var header_height = 60;
 var min_header_height = 60;
-var theme_root = '/wp-content/theme/websolns/';
+var theme_root = '/wp-content/themes/websolns/';
 
 $j(document).ready(function() {
 	"use strict";
