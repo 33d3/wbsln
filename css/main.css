@@ -152,21 +152,6 @@ header .article_title{
 }
 
 
-@media only screen and (max-width: 767px){
-	#megaMenuToggle.megaMenuToggle{
-		width: auto;
-		display: inline;
-		position: absolute;
-		right: 0;
-		top: -9px;
-	}
-	
-	#wbs_header_logo{
-		position: relative;
-		width: 100px;
-	}
-}
-
 #foot_widget_cont{
 	color:#333;
 }
@@ -271,4 +256,30 @@ button, .button, input[type="button"], input[type="reset"], input[type="submit"]
 
 .price_in_table .value{
 	display:none;
+}
+
+@media screen and (max-width: 1060px){
+	.row,.wpb_row{
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+	}
+	
+	.boxed section.section .section_inner, section.grid_section .section_inner{
+		width:auto;
+	}
+}
+
+@media only screen and (max-width: 767px){
+	#megaMenuToggle.megaMenuToggle{
+		width: auto;
+		display: inline;
+		position: absolute;
+		right: 0;
+		top: -9px;
+	}
+	
+	#wbs_header_logo{
+		position: relative;
+		width: 100px;
+	}
 }
