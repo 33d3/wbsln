@@ -41,8 +41,8 @@ img{
 
 
 #topbar{
-  height:35px;
-  background:red;
+  height:25px;
+  background:#638DB1;
 }
 
 #menu_holder{
@@ -233,3 +233,42 @@ section.section{
 	border-radius:10px;
 }
 
+.price_table_inner .price_button{
+	background-color:#3c709e;
+	border-color:#3c709e;
+	padding:0;
+	height:50px;
+	position:relative;
+}
+
+.price_table_inner .price_button a{
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 0;
+	line-height: 50px;
+}
+
+.price_table_inner.lastitem ul li{
+	border-left:2px solid #e0dede;
+}
+
+.price_table_inner.lastitem > ul > li.price_button{
+	border-left:1px solid #e0dede;
+}
+
+button, .button, input[type="button"], input[type="reset"], input[type="submit"]{
+	
+}
+
+.price_table_inner ul li.table_title{
+	color:#3c709e;
+}
+
+.price_in_table .price{
+	display:block;
+}
+
+.price_in_table .value{
+	display:none;
+}

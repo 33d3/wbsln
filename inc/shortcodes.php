@@ -869,11 +869,11 @@ add_shortcode('portfolio_list', 'portfolio_list');
 if (!function_exists('pricing_column')) {
 function pricing_column($atts, $content = null) {
   $html = ""; 
-	extract(shortcode_atts(array("title"=>'',"price" => "0","currency"=>"$","price_period"=>"/mo","link"=>"","target"=>"","button_text"=>"Buy Now","active"=>""), $atts));
+	extract(shortcode_atts(array("title"=>'',"class"=>"","price" => "0","currency"=>"$","price_period"=>"/mo","link"=>"","target"=>"","button_text"=>"Buy Now","active"=>""), $atts));
 	if($target == ""){
 		$target = "_self";
 	}
-	$html .=  "<div class='price_table'><div class='price_table_inner'>";
+	$html .=  "<div class='price_table'><div class='price_table_inner ".$class."'>";
 	if($active == "yes"){
 		$html .= "<div class='active_best_price'><p>". __('Best','qode') ."</p></div>";
 	} 

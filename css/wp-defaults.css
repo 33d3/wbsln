@@ -452,7 +452,6 @@ input[type="submit"] {
 	font-weight: 700;
 	padding: 10px 30px 11px;
 	text-transform: uppercase;
-	vertical-align: bottom;
 }
 
 button:hover,
@@ -474,7 +473,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background-color: #55d737;
+	background-color: #4978A0;
 }
 
 .search-field {
@@ -3373,7 +3372,6 @@ blockquote h5{
 	font-size: 13px;
 	line-height: 13px;
 	color: #000;
-	vertical-align: bottom;
 	display: inline-block;
 }
 

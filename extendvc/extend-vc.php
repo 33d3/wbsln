@@ -1741,6 +1741,14 @@ vc_map( array(
 				"description" => __("")
 			),
 			array(
+					"type" => "textfield",
+					"holder" => "div",
+					"class" => "",
+					"heading" => __("Class"),
+					"param_name" => "class",
+					"description" => __("")
+			),
+			array(
 				"type" => "textfield",
 				"holder" => "div",
 				"class" => "",
