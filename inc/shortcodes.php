@@ -1493,7 +1493,9 @@ if(!function_exists('icon_text')) {
             "title"                 => "",
             "text"                  => "",
             "title_color"           => "",
-            "text_color"            => ""
+            "text_color"            => "",
+			"internal_link"			=> "",
+			"external_link"			=> ""
         );
         
         extract(shortcode_atts($default_atts, $atts));
@@ -1528,6 +1530,17 @@ if(!function_exists('icon_text')) {
         if($icon_border == 'yes' && $icon_border_color != "") {
             $icon_stack_style .= 'border: 1px solid '.$icon_border_color.';';
         }
+        
+        
+        $link = false;
+        
+        if($internal_link != ""){
+			$link = get_permalink($internal_link);
+		}else if ($external_link != ""){
+			$link = $external_link;
+		}
+        	
+        
                 
         $box_size = '';
         //generate icon text holder styles and classes
@@ -1638,15 +1651,26 @@ if(!function_exists('icon_text')) {
             
             $html .= "<div class='icon_with_title ".$icon_with_text_clasess."'>";
             
+            if($link)
+            	$html .= '<a href="'.$link.'" title="">';
             //generate icon holder html part with icon
             $html .= '<div class="icon_holder">';
             $html .= $html_icon;
             $html .= '</div>'; //close icon_holder
 
+            if($link)
+            	$html .= '</a>';
+            
             //generate text html
             $html .= '<div class="icon_text_holder">';
             $html .= '<div class="icon_text_inner" style="'.$icon_text_inner_style.'">';
+            
+            if($link)
+            	$html .= '<a href="'.$link.'" title="">';
             $html .= '<h4 style="'.$title_style.'">'.$title.'</h4>';
+            if($link)
+            	$html .= '</a>';
+            
             $html .= '<p style="'.$text_style.'">'.$text.'</p>';
             $html .= '</div>';  //close icon_text_inner
             $html .= '</div>'; //close icon_text_holder
@@ -1661,6 +1685,10 @@ if(!function_exists('icon_text')) {
                 $box_holder_styles .= 'border-color: '.$box_border_color.';';
             } 
             
+            if($box_border == "no"){
+				$box_holder_styles .= 'border-color: transparent;';
+			}
+            
             if($box_background_color != "") {
                 $box_holder_styles .= 'background-color: '.$box_background_color.';';
             }
@@ -1670,15 +1698,25 @@ if(!function_exists('icon_text')) {
             
             $html .= '<div class="box_holder with_icon" style="'.$box_holder_styles.'">';
             
+            if($link)
+            	$html .= '<a href="'.$link.'" title="">';
             $html .= '<div class="box_holder_icon">';
             $html .= '<div class="box_holder_icon_inner '.$icon_with_text_clasess.'">';
             $html .= $html_icon;
             $html .= '</div>'; //close box_holder_icon_inner
             $html .= '</div>'; //close box_holder_icon
+            if($link)
+            	$html .= '</a>';
             
             //generate text html
             $html .= '<div class="box_holder_inner center">';
+            
+            if($link)
+            	$html .= '<a href="'.$link.'" title="">';
             $html .= '<h4 style="'.$title_style.'">'.$title.'</h4>';
+            if($link)
+            	$html .= '</a>';
+            
             $html .= '<span class="separator transparent" style="margin: 8px 0;"></span>';
             $html .= '<p style="'.$text_style.'">'.$text.'</p>';
             $html .= '</div>'; //close box_holder_inner

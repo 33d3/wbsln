@@ -261,6 +261,24 @@ button, .button, input[type="button"], input[type="reset"], input[type="submit"]
 	display:none;
 }
 
+.box_holder_icon > .box_holder_icon_inner > .font_awsome_icon{
+	background: #000;
+	border-radius: 100px;
+	width: 85px;
+	height: 85px;
+	box-shadow: 0 0 1px 1px;
+	padding: 13px 0px;
+	text-align: center;
+}
+
+.icon_with_title.center > a > .icon_holder{
+	padding: 0 0 25px;
+}
+
+.icon_with_title .icon_text_holder .icon_text_inner > a > h4{
+	padding: 0 0 12px;
+}
+
 @media screen and (max-width: 1060px){
 	.row,.wpb_row{
 		margin-right: 0 !important;

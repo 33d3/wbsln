@@ -48,6 +48,33 @@ function wbs_page_title($text = null){
 	endif; 
 }
 
+function wbs_get_pages_dropdown(){
+	$args = array(
+		'sort_order' => 'ASC',
+		'sort_column' => 'post_title',
+		'hierarchical' => 1,
+		'exclude' => '',
+		'include' => '',
+		'meta_key' => '',
+		'meta_value' => '',
+		'authors' => '',
+		'child_of' => 0,
+		'parent' => -1,
+		'exclude_tree' => '',
+		'number' => '',
+		'offset' => 0,
+		'post_type' => 'page',
+		'post_status' => 'publish'
+	);
+	
+	$result = array('---Select a Page---'=>null);	
+
+	foreach (get_pages($args) as $p)
+		$result[$p->post_title] = $p->ID;
+	
+	return $result;
+}
+
 
 function webs_check_left_sidebar(){
 	global $post;

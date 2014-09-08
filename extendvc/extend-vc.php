@@ -1741,11 +1741,15 @@ vc_map( array(
 				"description" => __("")
 			),
 			array(
-					"type" => "textfield",
+					"type" => "dropdown",
 					"holder" => "div",
 					"class" => "",
 					"heading" => __("Class"),
 					"param_name" => "class",
+					"value" => array(
+							"" => "",
+							"Last Item" => "lastitem",
+					),
 					"description" => __("")
 			),
 			array(
@@ -2496,6 +2500,24 @@ vc_map( array(
 				"param_name" => "box_background_color",
 				"description" => __(""),
 				"dependency" => Array('element' => "box_type", 'value' => array('icon_in_a_box'))
+			),
+			array(
+					"type" => "dropdown",
+					"holder" => "div",
+					"class" => "",
+					"heading" => __("Link to Internal Page"),
+					"param_name" => "internal_link",
+					"value" => wbs_get_pages_dropdown(),
+					"description" => __("")
+			),
+			array(
+					"type" => "textfield",
+					"holder" => "div",
+					"class" => "",
+					"heading" => __("Link to External Page"),
+					"param_name" => "external_link",
+					"value" => __(""),
+					"description" => __("Fill only if you didnt select anything from Internal page")
 			),
 			array(
 				"type" => "dropdown",
