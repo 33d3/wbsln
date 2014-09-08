@@ -1485,7 +1485,6 @@ if(!function_exists('icon_text')) {
             "icon_border_color"     => "", 
             "border_color"          => "", 
             "icon_color"            => "", 
-            "icon_background_color" => "",
             "box_type"              => "",
             "box_border"            => "",
             "box_border_color"      => "",
@@ -1495,7 +1494,8 @@ if(!function_exists('icon_text')) {
             "title_color"           => "",
             "text_color"            => "",
 			"internal_link"			=> "",
-			"external_link"			=> ""
+			"external_link"			=> "",
+			"icon_background_color" => "#000",
         );
         
         extract(shortcode_atts($default_atts, $atts));
@@ -1602,7 +1602,10 @@ if(!function_exists('icon_text')) {
                     $html_icon .= '</span>';
                     break;
                 default:
-                    $html_icon .= '<span class="font_awsome_icon '.$icon_size.' '.$icon_stack_classes.'">';
+                	$icon_bgcolor = 'style="background:'.$icon_background_color.'"';
+                	if($box_type != "normal")
+                		
+                    $html_icon .= '<span class="font_awsome_icon '.$icon_size.' '.$icon_stack_classes.'" '.$icon_bgcolor.'>';
                     $html_icon .= '<i class="'.$icon.'" style="'.$style.'"></i>';
                     $html_icon .= '</span>';
                     break;

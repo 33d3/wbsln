@@ -2606,7 +2606,8 @@ vc_map( array(
 				"heading" => __("Icon Background Color"),
 				"param_name" => "icon_background_color",
 				"description" => __("Icon Background Color (only for square and circle icon type)"),
-				"dependency" => Array('element' => "icon_type", 'value' => array('square','circle'))
+				//"dependency" => Array('element' => "icon_type", 'value' => array('square','circle'))
+				"dependency" => Array('element' => "box_type", 'value' => array('icon_in_a_box'))
 			),
 			array(
 				"type" => "textfield",

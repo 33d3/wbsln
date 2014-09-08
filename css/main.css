@@ -266,7 +266,7 @@ button, .button, input[type="button"], input[type="reset"], input[type="submit"]
 	border-radius: 100px;
 	width: 85px;
 	height: 85px;
-	box-shadow: 0 0 1px 1px;
+	/*box-shadow: 0 0 1px 1px;*/
 	padding: 13px 0px;
 	text-align: center;
 }
