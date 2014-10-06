@@ -33,6 +33,8 @@ function register_websolns_settings() {
 	register_setting( 'websolns_settings-group', 'websolns_notice_enable' );
 	register_setting( 'websolns_settings-group', 'websolns_notice' );
 	register_setting( 'websolns_settings-group', 'websolns_hours' );
+	register_setting('websolns_settings-group', 'websolsn_legal_page');
+	register_setting('websolns_settings-group', 'websolsn_copyright');
 }
 
 function websolns_settings_page() {

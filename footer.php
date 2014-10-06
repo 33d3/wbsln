@@ -15,12 +15,12 @@ defined('ABSPATH') or die("No script kiddies please!");
       <div class="row">
         <div class="col-md-6">
           <div class="footbar">
-              Copyright Emrah
+              <?php echo get_option('content-page.php')?get_option('content-page.php'):'Copyright @ Websolns'?>
           </div>  
         </div>
         <div class="col-md-6">
           <div class="footbar pull-right">
-              Legal info
+             <a href="<?php echo get_option('websolsn_legal_page')?get_option('websolsn_legal_page'):'#'?>" title="Legal Info" target="_blank">Legal info</a>
           </div>
         </div>
       </div>  
