@@ -644,3 +644,72 @@ function getFontAwesomeIconArray(){
   return $icons;
 }
 }
+
+
+
+function websolns_business_info($atts) {
+
+	$args = shortcode_atts( array(), $atts );	
+
+	$phone = get_option ( 'websolns_phone' );
+	$address = get_option ( 'websolns_address' );
+	$notice_enabled = get_option ( 'websolns_notice_enable' );
+	$notice = get_option ( 'websolns_notice' );
+	$hours = json_decode ( get_option ( 'websolns_hours' ) );
+	
+	
+	$html =	'<div class="mini-contacts">
+				<ul>';
+			
+	if($notice_enabled && $notice != ''):
+		$html .= '<li class="websolns_attention"><div class="truncate">'.get_option('websolns_notice').'</div></li>';
+	else:
+		
+		if ($hours) :
+			$today = $hours [intval ( date ( 'N' ) ) - 1];
+			
+			if ($today->closed) :
+				$html .= '<li>
+							<a href="'.get_home_url().'/contact'.'">
+								<b>'._e('Closed','cheeseboutique').'</b>
+					 			'.date(', l, F j').
+							'</a>
+						</li>';	
+			else:
+				$start = strtotime ( date ( 'Y-m-d ' ) . $today->start );
+				$end = strtotime ( date ( 'Y-m-d ' ) . $today->end );
+				$now = time ();
+
+				$html .= '<li>
+							<a href="'.get_home_url().'/contact">
+								<b>'.($start < $now && $end > $now?__('Open','cheeseboutique'):__('Closed',LANGUAGE_ZONE)).'</b> 
+								'.(date(', l, F j, ') . $today->start . ' - ' . $today->end).'
+							</a>
+						</li>';
+			endif;
+		endif;
+	endif;
+	
+	if($phone):
+		$html .= '<li>
+					<a href="tel:'.$phone.'" title="'._e('Call Us','cheeboutique').'"> 
+						<b>'.$phone.'</b>
+					</a>
+				 </li>';
+	endif;
+	if($address):
+		$html .= '<li>
+					<a href="https://www.google.com/maps/place/'.urlencode($address).'" target="_blank" title="See on Map">
+						<b>'.$address.'</b> 
+						<img src="'.WBS_THEME_URI.'/css/img/mapicon.gif" />'._e('',LANGUAGE_ZONE).'
+					</a>
+				</li>';
+	endif;
+
+	$html .= '</ul>
+			</div>';
+	
+	return $html;
+}
+
+add_shortcode('business_info', 'websolns_business_info');

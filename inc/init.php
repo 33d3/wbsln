@@ -9,6 +9,7 @@ if ( !defined( 'WBS_THEME_URI' ) ) {
 if(!defined('LANGUAGE_ZONE'))
 	define('LANGUAGE_ZONE', 'websolns');
 
+include 'admin/admin_init.php';
 include 'setup_theme.php';
 include 'require_plugins.php';
 include 'shortcodes.php';
