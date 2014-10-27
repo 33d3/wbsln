@@ -1,8 +1,9 @@
 <?php 
 defined('ABSPATH') or die("No script kiddies please!");
 
-include 'inc/init.php';
-
+add_action('init', function(){
+	include 'inc/init.php';
+});
 
 function get_websolns_slider(){
 	$id = get_the_ID();
