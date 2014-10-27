@@ -40,7 +40,7 @@ function register_websolns_settings() {
 function websolns_settings_page() {
 ?>
 <div class="wrap" id="websolns_admin_options">
-<h2><?php _e('Cheeseboutique Options','cheeseboutique') ?></h2>
+	<h2><?php _e('WEB Solutions Options',LANGUAGE_ZONE) ?></h2>
 <hr/>
 
 <h2 class="nav-tab-wrapper">
