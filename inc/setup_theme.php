@@ -6,8 +6,8 @@ if ( ! isset( $content_width ) ) {
 }
 
 
-function cb_after_theme(){
-	
+function wbs_after_theme_setup(){
+
 	load_theme_textdomain( LANGUAGE_ZONE, get_template_directory() . '/languages' );
 	
 	/**
@@ -119,11 +119,11 @@ function cb_after_theme(){
 	wp_upload_dir();
 }
 
-add_action( 'after_setup_theme', 'cb_after_theme');
+add_action( 'after_setup_theme', 'wbs_after_theme_setup');
 
 
 
-function cb_theme_scripts(){
+function wbs_theme_scripts(){
 
 	wp_enqueue_style('normalize',WBS_THEME_URI.'/css/lib/normalize.css');
 	wp_enqueue_style('wbs_bootstrap',WBS_THEME_URI.'/lib/bt/css/bootstrap.min.css');
@@ -135,15 +135,15 @@ function cb_theme_scripts(){
 	wp_enqueue_script('wbs_plugins_js',WBS_THEME_URI.'/js/plugins.js',array('jquery'));
 	wp_enqueue_script('wbs_default_js',WBS_THEME_URI.'/js/default.js',array('jquery','wbs_plugins_js'));
 	wp_enqueue_script('wbs_main_js',WBS_THEME_URI.'/js/main.js',array('jquery','wbs_default_js'));
-	wp_localize_script( 'wbs_main_js', 'cb_aj',array( 'url' => admin_url( 'admin-ajax.php' )) );
+	wp_localize_script( 'wbs_main_js', 'wbs_aj',array( 'url' => admin_url( 'admin-ajax.php' )) );
 }
 
-add_action( 'wp_enqueue_scripts', 'cb_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'wbs_theme_scripts' );
 
 
 function websolns_header_style(){
 	$text_color = get_header_textcolor();
-	
+
 	// If no custom color for text is set, let's bail.
 	if ( display_header_text() && $text_color === get_theme_support( 'custom-header', 'default-text-color' ) )
 		return;
