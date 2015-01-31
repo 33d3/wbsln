@@ -1,5 +1,8 @@
 ( function( $ ) {
-
+	$('.customize-controls-close').click(function(e){
+		e.preventDefault();
+		window.location.href = '/wp-admin';
+	});
 	// Update the site title in real time...
 	wp.customize( 'link_textcolor', function( value ) {
 		value.bind( function( newval ) {
